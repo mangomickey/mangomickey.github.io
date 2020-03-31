@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="others,">
 
 
 
@@ -75,17 +75,23 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="红黑树的理解​    之前网上搜索了很多红黑树的教程，大量文章都会直接介绍红黑树的性质，而红黑树的性质个人认为比较i难以理解，不如从红黑树的诞生（平衡树，2-3树）来尝试理解红黑树。 平衡二叉树​    如果一棵二叉树的每一个节点的左右子节点的高度相差不超过1，那么这棵树就是平衡二叉树。这时对这棵树进行查找任意元素最多只需要比较~lgN次，有较好的查找效率。但是在插入、删除元素时，需要通过一系列旋">
+<meta name="keywords" content="others">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://mangomickey.github.io/mangomickey.github.io/2019/09/13/hello-world/index.html">
+<meta property="og:title" content="红黑树的理解">
+<meta property="og:url" content="https://mangomickey.github.io/mangomickey.github.io/2020/03/31/red-black-tree/index.html">
 <meta property="og:site_name" content="mangomickey">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="红黑树的理解​    之前网上搜索了很多红黑树的教程，大量文章都会直接介绍红黑树的性质，而红黑树的性质个人认为比较i难以理解，不如从红黑树的诞生（平衡树，2-3树）来尝试理解红黑树。 平衡二叉树​    如果一棵二叉树的每一个节点的左右子节点的高度相差不超过1，那么这棵树就是平衡二叉树。这时对这棵树进行查找任意元素最多只需要比较~lgN次，有较好的查找效率。但是在插入、删除元素时，需要通过一系列旋">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-12T22:48:43.611Z">
+<meta property="og:image" content="https://mangomickey.github.io/mangomickey.github.io/2020/03/31/red-black-tree/1585636392235.png">
+<meta property="og:image" content="https://mangomickey.github.io/mangomickey.github.io/2020/03/31/red-black-tree/1585640984312.png">
+<meta property="og:image" content="https://mangomickey.github.io/mangomickey.github.io/2020/03/31/red-black-tree/1585641524827.png">
+<meta property="og:image" content="https://mangomickey.github.io/mangomickey.github.io/2020/03/31/red-black-tree/1585642449556.png">
+<meta property="og:updated_time" content="2020-03-31T10:30:59.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="红黑树的理解">
+<meta name="twitter:description" content="红黑树的理解​    之前网上搜索了很多红黑树的教程，大量文章都会直接介绍红黑树的性质，而红黑树的性质个人认为比较i难以理解，不如从红黑树的诞生（平衡树，2-3树）来尝试理解红黑树。 平衡二叉树​    如果一棵二叉树的每一个节点的左右子节点的高度相差不超过1，那么这棵树就是平衡二叉树。这时对这棵树进行查找任意元素最多只需要比较~lgN次，有较好的查找效率。但是在插入、删除元素时，需要通过一系列旋">
+<meta name="twitter:image" content="https://mangomickey.github.io/mangomickey.github.io/2020/03/31/red-black-tree/1585636392235.png">
 
 
 
@@ -117,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://mangomickey.github.io/mangomickey.github.io/2019/09/13/hello-world/">
+  <link rel="canonical" href="https://mangomickey.github.io/mangomickey.github.io/2020/03/31/red-black-tree/">
 
 
 
@@ -302,7 +308,7 @@
           
             <h2 id="红黑树的理解"><a href="#红黑树的理解" class="headerlink" title="红黑树的理解"></a>红黑树的理解</h2><p>​    之前网上搜索了很多红黑树的教程，大量文章都会直接介绍红黑树的性质，而红黑树的性质个人认为比较i难以理解，不如从红黑树的诞生（平衡树，2-3树）来尝试理解红黑树。</p>
 <h4 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h4><p>​    如果一棵二叉树的每一个节点的左右子节点的高度相差不超过1，那么这棵树就是平衡二叉树。这时对这棵树进行查找任意元素最多只需要比较~lgN次，有较好的查找效率。但是在插入、删除元素时，需要通过一系列旋转等操作来保持平衡性。</p>
-<img src="red-black-tree\1585636392235.png" alt="1585636392235">
+<img src="/mangomickey.github.io/2020/03/31/red-black-tree/1585636392235.png" width="1585636392235">
 
 <h4 id="2-3树"><a href="#2-3树" class="headerlink" title="2-3树"></a>2-3树</h4><p>​    在一个普通二叉树中插入元素或删除元素时，如果要动态的维持树的平衡需要的代价会很高，因此有了一种更灵活的树——2-3树。</p>
 <p>2-3树的节点分为两种</p>
@@ -310,16 +316,19 @@
 <li>2节点：含有1个元素和2条链接</li>
 <li>3节点：含有2个元素和3条链接</li>
 </ul>
-<p><img src="red-black-tree%5C1585640984312.png" alt="1585640984312"></p>
+<img src="/mangomickey.github.io/2020/03/31/red-black-tree/1585640984312.png" width="1585640984312">
+
 <p>一颗平衡的2-3树同样有很好的查找性能，相较于普通二叉树，2-3树维护平衡性的代价显然更小</p>
 <p>例如：在2-3树中插入一个元素，不一定需要增加一个节点，如果有一个2节点，可以将2节点变更为3节点，不影响其他的节点。</p>
 <p>关于2-3树的插入、删除操作算法，其实并不复杂，这里不详细介绍。</p>
 <h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>​    接下来是主角——红黑树，前面已经介绍了2-3树，其实红黑树跟2-3树是一样的东西，只是表现得形式变了。</p>
 <p>​    2-3树因为存在3节点，所以2-3树不是一个标准的二叉树，那么红黑树其实基本思想就是用一些额外的信息来代替2-3树中的3节点，让其变成一颗标准二叉树。</p>
-<p><img src="red-black-tree%5C1585641524827.png" alt="1585641524827"></p>
+<img src="/mangomickey.github.io/2020/03/31/red-black-tree/1585641524827.png" width="1585641524827">
+
 <p>​    上图是一个2-3树变形为红黑树的过程，只是将2-3树中的3节点拆分为一个黑节点和一个红节点（两节点用红链接相连），将2-3树中的3节点的子节点重新分配给拆分之后的红黑两个节点上。</p>
 <p>​    当然，红黑树的红链接一般是左斜的，上图为了体现和2-3树一一对应所以将红链接画平了，当计算红黑树节点的高度时，我们定义节点的高度等于节点到根节点中经过<strong>黑链接</strong>的数量。那么图中40元素所在的节点和46元素所在的节点高度都为2，所以即使拆分为红黑节点，树仍然是平衡的。</p>
-<p><img src="red-black-tree%5C1585642449556.png" alt="1585642449556"></p>
+<img src="/mangomickey.github.io/2020/03/31/red-black-tree/1585642449556.png" width="1585642449556">
+
 <p>​    （对于红黑树的操作，其实完全跟2-3树是类似的。）</p>
 <p>最后再来看我在网上教程中看到的红黑树的性质，应该能比较好的理解了：</p>
 <ol>
@@ -329,136 +338,6 @@
 <li>如果一个节点是红色的，则它的子节点必须是黑色的。</li>
 <li>从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。</li>
 </ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mangomickey.github.io/mangomickey.github.io/mangomickey.github.io/2019/09/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mangomickey">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mangomickey.github.io/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="mangomickey">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mangomickey.github.io/2019/09/13/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-13T06:48:43+08:00">2019-09-13</time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
@@ -540,7 +419,7 @@
               
                 <a href="/mangomickey.github.io/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
