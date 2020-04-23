@@ -124,7 +124,7 @@
 
 
 
-  <title>红黑树的理解 | mangomickey</title>
+  <title>java-final | mangomickey</title>
   
 
 
@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="mangomickey.com/red-black-tree.html">
+    <link itemprop="mainEntityOfPage" href="mangomickey.com/java-final.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mangomickey">
@@ -268,7 +268,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">红黑树的理解</h2>
+          <h2 class="post-title" itemprop="name headline">java-final</h2>
         
 
         <div class="post-meta">
@@ -280,7 +280,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-31T18:01:15+08:00">2020-03-31</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-23T09:40:55+08:00">2020-04-23</time>
             
 
             
@@ -321,35 +321,39 @@
       
 
       
-        <h2 id="红黑树的理解"><a href="#红黑树的理解" class="headerlink" title="红黑树的理解"></a>红黑树的理解</h2><p>之前网上搜索了很多红黑树的教程，大量文章都会直接介绍红黑树的性质，而红黑树的性质个人认为比较i难以理解，不如从红黑树的诞生（平衡树，2-3树）来尝试理解红黑树。</p>
-<hr>
-<h4 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h4><p>如果一棵二叉树的每一个节点的左右子节点的高度相差不超过1，那么这棵树就是平衡二叉树。这时对这棵树进行查找任意元素最多只需要比较~lgN次，有较好的查找效率。但是在插入、删除元素时，需要通过一系列旋转等操作来保持平衡性。</p>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585636392235.png" alt="1585636392235"></p>
-<h4 id="2-3树"><a href="#2-3树" class="headerlink" title="2-3树"></a>2-3树</h4><p>在一个普通二叉树中插入元素或删除元素时，如果要动态的维持树的平衡需要的代价会很高，因此有了一种更灵活的树——2-3树。</p>
-<p>2-3树的节点分为两种</p>
-<ul>
-<li>2节点：含有1个元素和2条链接</li>
-<li>3节点：含有2个元素和3条链接</li>
-</ul>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585640984312.png" alt="1585640984312"></p>
-<p>一颗平衡的2-3树同样有很好的查找性能，相较于普通二叉树，2-3树维护平衡性的代价显然更小</p>
-<p>例如：在2-3树中插入一个元素，不一定需要增加一个节点，如果有一个2节点，可以将2节点变更为3节点，不影响其他的节点。</p>
-<p>关于2-3树的插入、删除操作算法，其实并不复杂，这里不详细介绍。</p>
-<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>接下来是主角——红黑树，前面已经介绍了2-3树，其实红黑树跟2-3树是一样的东西，只是表现得形式变了。</p>
-<p>2-3树因为存在3节点，所以2-3树不是一个标准的二叉树，那么红黑树其实基本思想就是用一些额外的信息来代替2-3树中的3节点，让其变成一颗标准二叉树。</p>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585641524827.png" alt="1585641524827"></p>
-<p>上图是一个2-3树变形为红黑树的过程，只是将2-3树中的3节点拆分为一个黑节点和一个红节点（两节点用红链接相连），将2-3树中的3节点的子节点重新分配给拆分之后的红黑两个节点上。</p>
-<p>当然，红黑树的红链接一般是左斜的，上图为了体现和2-3树一一对应所以将红链接画平了，当计算红黑树节点的高度时，我们定义节点的高度等于节点到根节点中经过<strong>黑链接</strong>的数量。那么图中40元素所在的节点和46元素所在的节点高度都为2，所以即使拆分为红黑节点，树仍然是平衡的。</p>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585642449556.png" alt="1585642449556"></p>
-<p>  （对于红黑树的操作，其实完全跟2-3树是类似的。）</p>
-<p>最后再来看我在网上教程中看到的红黑树的性质，应该能比较好的理解了：</p>
+        <h3 id="java中的final关键字的思考"><a href="#java中的final关键字的思考" class="headerlink" title="java中的final关键字的思考"></a>java中的final关键字的思考</h3><p>最近工作中发现了一个小bug，带来了非常大的影响。是跟java中的final关键字有关。</p>
+<p>java中的final关键字这里不做过多的介绍，它可以修饰在数据字段、方法、类，这里主要说final修饰在数据字段上的情况：</p>
+<p>1，如果字段是基本数据类型，该字段的值不可改变。</p>
+<p>2，如果字段是对象引用，该字段的引用不可改变。</p>
+<p>对于第二种情况，字段的引用虽然不可改变，可是对象本身内的其他属性确是可以改变的，因此有些情况下，我们希望一个对象字段永远不要改变，因此使用了final字段，但是其实没有限制住对这个对象的修改，结果造成一些问题。</p>
+<p>看下这次的bug，下面是一个共用的返回值DTO（某个开源框架的代码），很多不同的service方法的返回值都是用的这个类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReturnT</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> code;</span><br><span class="line">	<span class="keyword">private</span> T message;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> ReturnT SUCCESS = <span class="keyword">new</span> ReturnT(SUCCESS_CODE, <span class="keyword">null</span>);</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> ReturnT FAIL = <span class="keyword">new</span> ReturnT(FAIL_CODE, <span class="keyword">null</span>);</span><br><span class="line">	<span class="comment">// setCode、setMessage、getCode、getMessage</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是一般的service方法，对于一般成功失败的，直接返回ReturnT类里已经定义好的SUCCESS、FAIL这两个final变量，不需要再重新创建新的ReturnT对象，并赋值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ReturnT <span class="title">method1</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		xxxx <span class="comment">//业务逻辑</span></span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">		<span class="keyword">return</span> ReturnT.FAIL;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ReturnT.SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最近有一段新上线的service代码这样写了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ReturnT <span class="title">method2</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//默认返回success</span></span><br><span class="line">	ReturnT result = ReturnT.SUCCESS;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		xxxx <span class="comment">//业务逻辑</span></span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">		<span class="comment">//发生了异常，修改code</span></span><br><span class="line">		result.setCode(ReturnT.FAIL_CODE);</span><br><span class="line">		result.setMessage(e.getMessage());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>method2如果发生异常，将ReturnT.SUCCESS这个final对象的code直接改成失败了，那么之后method1方法执行成功返回的ReturnT.SUCCESS，实际上返回的是一个code=FAIL_CODE的对象，并不符合期望。结果造成大面积的像method1这种写法的service，全部返回一样的失败结果。（但是其实业务逻辑是正确执行了的）</p>
+<p>对此有两方面的反思：</p>
 <ol>
-<li>每个节点或者是黑色，或者是红色。</li>
-<li>根节点是黑色。</li>
-<li>每个叶子节点（NIL）是黑色。 [注意：这里叶子节点，是指为空(NIL或NULL)的叶子节点！]</li>
-<li>如果一个节点是红色的，则它的子节点必须是黑色的。</li>
-<li>从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。</li>
+<li>一个对象用final修饰了，我们要不要去改对象内的属性内容？</li>
+<li>在java中，当我们希望我们定义的一个字段，引用及对象内的属性都不可改变的时候，怎么做比较好？</li>
 </ol>
+<p>对于第一点，我的看法是尽量不要，我们无法猜测，定义这个字段的开发者（使用了final修饰）的明确意图，是不是故意允许其他人可以修改这个变量，有可能就向上面ReturnT这个类的SUCCESS和FAIL字段，开发者其实是不希望有人能修改这个变量的。当然也有其他的场景，比如开发者只是想让引用不可变，对象可以随意修改。这个需要大家自己去仔细评估。</p>
+<p>对于第二点，首先对这个对象需要做一些改动，其实effective java第15条中有详细的介绍，需要做到一下几点：</p>
+<ul>
+<li><strong>不要提供任何会修改对象状态的方法。</strong>（称为mutator）</li>
+<li><strong>保证类不会被扩展。</strong></li>
+<li><strong>使所有域都是final的。</strong></li>
+<li><strong>使所有域都是私有的。</strong></li>
+<li><strong>确保对于任何可变组件的互斥访问。</strong></li>
+</ul>
+<p>对于上面的ReturnT类可以做如下修改：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ReturnT</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> code;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> String message;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> ReturnT SUCCESS = <span class="keyword">new</span> ReturnT(SUCCESS_CODE, <span class="keyword">null</span>);</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> ReturnT FAIL = <span class="keyword">new</span> ReturnT(FAIL_CODE, <span class="keyword">null</span>);</span><br><span class="line">	<span class="comment">//只有getCode、getMessage，没有set方法`</span></span><br><span class="line">    <span class="comment">//构造方法(code,message)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>持续更新ing……</p>
 
       
     </div>
@@ -367,7 +371,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/others/" rel="tag"><i class="fa fa-tag"></i> others</a>
+            <a href="/tags/other/" rel="tag"><i class="fa fa-tag"></i> other</a>
           
         </div>
       
@@ -380,15 +384,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/red-black-tree.html" rel="next" title="红黑树的理解">
+                <i class="fa fa-chevron-left"></i> 红黑树的理解
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/java-final.html" rel="prev" title="java-final">
-                java-final <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#红黑树的理解"><span class="nav-number">1.</span> <span class="nav-text">红黑树的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.0.1.</span> <span class="nav-text">平衡二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3树"><span class="nav-number">1.0.2.</span> <span class="nav-text">2-3树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">1.0.3.</span> <span class="nav-text">红黑树</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java中的final关键字的思考"><span class="nav-number">1.</span> <span class="nav-text">java中的final关键字的思考</span></a></li></ol></div>
             
 
           </div>

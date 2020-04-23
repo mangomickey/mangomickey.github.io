@@ -124,7 +124,7 @@
 
 
 
-  <title>红黑树的理解 | mangomickey</title>
+  <title>Archive | mangomickey</title>
   
 
 
@@ -143,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,178 +237,72 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        Um..! 2 posts in total. Keep on posting.
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h2 class="archive-year" id="archive-year-2020">2020</h2>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="mangomickey.com/red-black-tree.html">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mangomickey">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/tx-white.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="mangomickey">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h2 class="post-title" itemprop="name headline">红黑树的理解</h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/java-final.html" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">java-final</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-31T18:01:15+08:00">2020-03-31</time>
-            
+            </a>
+        
+      </h3>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-04-23T09:40:55+08:00" content="2020-04-23">
+          04-23
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="红黑树的理解"><a href="#红黑树的理解" class="headerlink" title="红黑树的理解"></a>红黑树的理解</h2><p>之前网上搜索了很多红黑树的教程，大量文章都会直接介绍红黑树的性质，而红黑树的性质个人认为比较i难以理解，不如从红黑树的诞生（平衡树，2-3树）来尝试理解红黑树。</p>
-<hr>
-<h4 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h4><p>如果一棵二叉树的每一个节点的左右子节点的高度相差不超过1，那么这棵树就是平衡二叉树。这时对这棵树进行查找任意元素最多只需要比较~lgN次，有较好的查找效率。但是在插入、删除元素时，需要通过一系列旋转等操作来保持平衡性。</p>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585636392235.png" alt="1585636392235"></p>
-<h4 id="2-3树"><a href="#2-3树" class="headerlink" title="2-3树"></a>2-3树</h4><p>在一个普通二叉树中插入元素或删除元素时，如果要动态的维持树的平衡需要的代价会很高，因此有了一种更灵活的树——2-3树。</p>
-<p>2-3树的节点分为两种</p>
-<ul>
-<li>2节点：含有1个元素和2条链接</li>
-<li>3节点：含有2个元素和3条链接</li>
-</ul>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585640984312.png" alt="1585640984312"></p>
-<p>一颗平衡的2-3树同样有很好的查找性能，相较于普通二叉树，2-3树维护平衡性的代价显然更小</p>
-<p>例如：在2-3树中插入一个元素，不一定需要增加一个节点，如果有一个2节点，可以将2节点变更为3节点，不影响其他的节点。</p>
-<p>关于2-3树的插入、删除操作算法，其实并不复杂，这里不详细介绍。</p>
-<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>接下来是主角——红黑树，前面已经介绍了2-3树，其实红黑树跟2-3树是一样的东西，只是表现得形式变了。</p>
-<p>2-3树因为存在3节点，所以2-3树不是一个标准的二叉树，那么红黑树其实基本思想就是用一些额外的信息来代替2-3树中的3节点，让其变成一颗标准二叉树。</p>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585641524827.png" alt="1585641524827"></p>
-<p>上图是一个2-3树变形为红黑树的过程，只是将2-3树中的3节点拆分为一个黑节点和一个红节点（两节点用红链接相连），将2-3树中的3节点的子节点重新分配给拆分之后的红黑两个节点上。</p>
-<p>当然，红黑树的红链接一般是左斜的，上图为了体现和2-3树一一对应所以将红链接画平了，当计算红黑树节点的高度时，我们定义节点的高度等于节点到根节点中经过<strong>黑链接</strong>的数量。那么图中40元素所在的节点和46元素所在的节点高度都为2，所以即使拆分为红黑节点，树仍然是平衡的。</p>
-<p><img src="http://q87goj6ot.bkt.clouddn.com/image/1585642449556.png" alt="1585642449556"></p>
-<p>  （对于红黑树的操作，其实完全跟2-3树是类似的。）</p>
-<p>最后再来看我在网上教程中看到的红黑树的性质，应该能比较好的理解了：</p>
-<ol>
-<li>每个节点或者是黑色，或者是红色。</li>
-<li>根节点是黑色。</li>
-<li>每个叶子节点（NIL）是黑色。 [注意：这里叶子节点，是指为空(NIL或NULL)的叶子节点！]</li>
-<li>如果一个节点是红色的，则它的子节点必须是黑色的。</li>
-<li>从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。</li>
-</ol>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/others/" rel="tag"><i class="fa fa-tag"></i> others</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/java-final.html" rel="prev" title="java-final">
-                java-final <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -416,10 +310,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -440,17 +330,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -519,22 +400,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#红黑树的理解"><span class="nav-number">1.</span> <span class="nav-text">红黑树的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.0.1.</span> <span class="nav-text">平衡二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3树"><span class="nav-number">1.0.2.</span> <span class="nav-text">2-3树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">1.0.3.</span> <span class="nav-text">红黑树</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -675,10 +540,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
-
-
 
   
 
